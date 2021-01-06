@@ -1,0 +1,47 @@
+import './resets';
+@import './variables';
+
+@function weight($weight_name){
+    @return map-get($font-weights, $weight_name );
+}
+
+@mixin flexCentre{ //functions returns values, where as mixins returns styles
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin theme($light-theme:true){
+    @if ($light-theme){
+        background: lighten($primary-color, 100%);
+        color: darken($text-color,100%);
+    }
+}
+
+body{
+    background: $primary-color;
+    color:$text-color;
+}
+.main{
+    @include flexCentre;
+    width:80%;
+    margin: 0 auto;
+    
+    #{&}_paragraph{ /*interpolating only because we want to also include contents previously*/
+        //font-weight: map-get($font-weights, bold);
+        font-weight: weight(bold);
+        &:hover{
+            color:pink;
+        }
+    }
+}
+.light{
+    @include theme($light-theme:false);//on changing this value theme changes
+}
+/*Any SCSS file that strats with an _ will not be compiled to CSS */
+
+/* to extend styles of one component to another
+    #{&}__paragraph2{
+        @extend .main__paragraph1;
+    }
+*/

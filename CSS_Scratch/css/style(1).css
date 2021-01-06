@@ -1,0 +1,48 @@
+/*body{
+    background:rgb(248, 248, 248);
+}
+h2:hover{
+    color:blueviolet;
+}*/
+/*Attribute selectors*/
+h2[class=subtitle]{ /*Select elements based on a value*/
+    color:blue;
+}
+img[src*="../img/"]{
+    border: 10px solid black;
+}
+
+/*--------------*/
+#contact-us{
+    color:green;
+}
+
+/*Pseudo Selectors*/
+li:first-child{
+    color:sandybrown; /*first child changes to a different color*/
+}
+li:nth-child(2){ /*every 2nd li going to be applied to*/
+    font-size: x-small;
+}
+/* li:only-child{} */ /*This works similarly*/
+/* #google-link:link {
+    color: springgreen;
+}
+#google-link:visited {
+    color:red;
+} */
+h2 + a{ /*Every a after h2 will turn red*/
+    color:red;
+}
+
+textarea ~ button{
+    /*Every button after text are in the same parent*/
+    color:purple 
+}
+
+ul li{ /*Every indirect child*/
+    color:rgb(248, 232, 6);
+}
+ul > li{ /*Only direct child*/
+    color:blue;
+}
